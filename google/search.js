@@ -15,6 +15,14 @@ const search = async (driver, searchTerm) => {
 
     // We make our restults lower case and then expect it to contain our original search term
     expect(resultsText.toLowerCase()).toContain(searchTerm.toLowerCase())
+
+    await driver.findElement(By.name('q')).clear();
+
+    await driver.findElement(By.name('q')).sendKeys('Puppies\n');
+
+    await driver.findElement(By.xpath('(//a[text()="Images"])[1]')).click();
+
+    await driver.sleep(3000);
 }
 
 module.exports = {

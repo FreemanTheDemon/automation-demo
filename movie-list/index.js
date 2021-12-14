@@ -1,7 +1,15 @@
 document.querySelector("form").addEventListener("submit", addMovie);
 const message = document.querySelector('#message')
+const music = new Audio('./praise.mp3');
+
+let firstClick = true;
 
 function addMovie(event) {
+  if (firstClick) {
+      music.currentTime = 11;
+      music.play();
+      firstClick = false;
+  }
   event.preventDefault();
   let inputField = document.querySelector('input')
 
